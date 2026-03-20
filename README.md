@@ -8,7 +8,7 @@ Web: www.penzionpodspicakem.cz
 * **Validace vstupů:** Automatická kontrola formátu e-mailu a telefonního čísla.
 * **Kontrola kapacity:** Hlídání kapacity penzionu (12-22 osob) a minimální délky pobytu (2 noci).
 * **Ošetření chyb:** Použití cyklu 'while' a bloku 'try-except' pro ošetření chybných uživatelských vstupů.
-* **Správa dat:** Rezervace jsem automaticky ukládány do souboru 'rezervace.txt'.
+* **Správa dat:** Rezervace jsou automaticky ukládány do souboru 'rezervace.txt'.
 ## Plánované funkce
 * **Správa rezervací:** Výpočet ceny na základě počtu osob (450 Kč/osoba) a délky pobytu.
 * **iCal Synchronizace:** Automatické hlídání obsazenosti propojením s kalendářem na e-chalupy.cz.
