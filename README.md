@@ -3,6 +3,12 @@
 Projekt pro vytvoření rezervačního systému pro reálný objekt: **Penzion pod Špičákem (Pod Špičákem 336, Tanvald)**.
 Web: www.penzionpodspicakem.cz
 
+## Funkce systému
+* **Objektově orientované programování (OOP):** Využití tříd 'Host' a 'Rezervace' pro přehlednou správu dat.
+* **Validace vstupů:** Automatická kontrola formátu e-mailu a telefonního čísla.
+* **Kontrola kapacity:** Hlídání kapacity penzionu (12-22 osob) a minimální délky pobytu (2 noci).
+* **Ošetření chyb:** Použití cyklu 'while' a bloku 'try-except' pro ošetření chybných uživatelských vstupů.
+* **Správa dat:** Rezervace jsem automaticky ukládány do souboru 'rezervace.txt'.
 ## Plánované funkce
 * **Správa rezervací:** Výpočet ceny na základě počtu osob (450 Kč/osoba) a délky pobytu.
 * **iCal Synchronizace:** Automatické hlídání obsazenosti propojením s kalendářem na e-chalupy.cz.
