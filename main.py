@@ -22,48 +22,52 @@ class Rezervace:
     def uloz_do_souboru(self):
         celkova_cena = self.vypocti_celkovou_cenu()
         zapis_hosta = (f"{self.datum_vytvoreni}: {self.host.jmeno_prijmeni} ({self.host.email}), ({self.host.telefon}) - "
-                 f"{self.pocet_osob} osob, {self.pocet_noci} nocí, "
-                 f"Cena: {celkova_cena} Kč\n")
-
-        with open("rezervace.txt", "a", encoding="utf-8") as soubor:
-            soubor.write(zapis_hosta)
-        print("Rezervace byla úspěšně uložena do souboru rezervace.txt")
+                        f"{self.pocet_osob} osob, {self.pocet_noci} nocí, "
+                        f"Cena: {celkova_cena} Kč\n")
+        try:
+            with open("rezervace.txt", "a", encoding="utf-8") as soubor:
+                soubor.write(zapis_hosta)
+            print("Rezervace byla úspěšně uložena do souboru rezervace.txt")
+        except IOError:
+            print("Chyba: Dp souboru nelze zapisovat. Zkontrolujte, zda není soubor otevřen jinde.")
 
 
 def spustit_system():
     print("=== Rezervační systém: Penzion pod Špičákem (Tanvald) ===")
 
-    try:
-        jmeno_prijmeni = input("Jméno a příjmení hosta: ")
+    jmeno_prijmeni = input("Jméno a příjmení hosta: ")
 
-        while True:
-            email = input("Email hosta: ")
-            if "@" in email and "." in email: break
-            print("Chyba: Email musí obsahovat zavináč (@) a tečku (.)")
+    while True:
+        email = input("Email hosta: ")
+        if "@" in email and "." in email:
+            break
+        print("Chyba: Email musí obsahovat zavináč (@) a tečku (.)")
 
-        while True:
-            telefon = input("Telefon hosta (pouze číslice): ")
-            if telefon.isdigit(): break
-            print("Chyba: Telefon nesmí obsahovat písmena ani mezery.")
+    while True:
+        telefon = input("Telefon hosta (pouze číslice): ")
+        if telefon.isdigit():
+            break
+        print("Chyba: Telefon nesmí obsahovat písmena ani mezery.")
 
-        while True:
+    while True:
+        try:
             osob = int(input("Počet osob (12-22): "))
             noci = int(input("Počet nocí (min. 2): "))
-            if 12 <= osob <= 22 and noci >= 2: break
-            print("Chyba: Nesplněny podmínky kapacity nebo délky pobytu.")
+            if 12 <= osob <= 22 and noci >= 2:
+                break
+            else:
+                print("Chyba: Nesplněny podmínky kapacity (12-22) nebo délky pobytu (min 2).")
+        except ValueError:
+            print("Chyba: Zadávejte prosím pouze číselné údaje u počtu osob a nocí.")
 
-        novy_host = Host(jmeno_prijmeni, email, telefon)
-        nova_rezervace = Rezervace(novy_host, osob, noci)
-        celkova_cena = nova_rezervace.vypocti_celkovou_cenu()
-        print(f"\nRezervace pro: {novy_host.jmeno_prijmeni}")
-        print(f"Celková cena pobytu: {celkova_cena} Kč")
+    novy_host = Host(jmeno_prijmeni, email, telefon)
+    nova_rezervace = Rezervace(novy_host, osob, noci)
+    celkova_cena = nova_rezervace.vypocti_celkovou_cenu()
 
-        nova_rezervace.uloz_do_souboru()
+    print(f"\nRezervace pro: {novy_host.jmeno_prijmeni}")
+    print(f"Celková cena pobytu: {celkova_cena} Kč")
 
-
-    except ValueError:
-        print("Chyba: Zadávejte prosím pouze číselné údaje u počtu osob/nocí.")
-
+    nova_rezervace.uloz_do_souboru()
 
 
 if __name__ == "__main__":
