@@ -78,10 +78,10 @@ vstup_jmeno = st.text_input("Jméno a příjmení hosta")
 vstup_email = st.text_input("Email hosta")
 vstup_telefon = st.text_input("Telefon (pouze číslice)")
 vstup_osob = st.number_input(
-    "Počet osob (12-22)", min_value=1, max_value=50, value=12
+    "Počet osob (12-22)", min_value=12, max_value=22, value=12
 )
 vstup_noci = st.number_input(
-    "Počet nocí (min. 2)", min_value=1, max_value=100, value=2
+    "Počet nocí (min. 2)", min_value=2, value=2
 )
 vstup_datum = st.text_input("Datum příjezdu (např. 15.01.2026)")
 
