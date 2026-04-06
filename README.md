@@ -32,4 +32,3 @@ Projekt využívá soubor `.gitignore` pro vyloučení systémových a osobních
 * Projekt je vyvíjen v jazyce Python 3.14.0
 * Použití knihoven `datetime` (interní) a `requests` (externí).
 * Kódování souborů:** `UTF-8` (pro správné zobrazení českých znaků v souboru `rezervace.txt`)
-
