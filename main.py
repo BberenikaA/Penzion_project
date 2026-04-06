@@ -71,8 +71,10 @@ class Rezervace:
         try:
             with open("rezervace.txt", "a", encoding="utf-8") as soubor:
                 soubor.write(zapis_hosta)
+            print("Rezervace byla úspěšně uložena do souboru rezervace.txt")
             return True
         except IOError:
+            print("Chyba: Do souboru nelze zapisovat. Zkontrolujte, zda není soubor otevřen jinde.")
             return False
 
 
@@ -152,4 +154,3 @@ def spustit_system():
 
 if __name__ == "__main__":
     spustit_system()
-
