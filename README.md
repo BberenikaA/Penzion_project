@@ -20,7 +20,7 @@ Web: www.penzionpodspicakem.cz
 * **Správa rezervací:** Výpočet ceny na základě počtu osob (450 Kč/osoba) a délky pobytu (se stropem 8000 Kč za noc za celý penzion).
 * Rozšířená logika zpracování: Podmíněné větvení programu na základě vlastnictví věrnostní karty. Zapouzdření výpočtu slevy přío do metod tříd hosta. Centralizovaná konfigurace sazeb a limitů v externím modulu `config.py`.
 * **iCal Synchronizace:** Automatické hlídání obsazenosti propojením s utajenou adresou kalendáře z e-chalupy.cz. Tato adresa je z důvodu bezpečnosti uložena v souboru `config.py` a kód je ošetřen pro případ výpadku sítě.
-* **Počasí pro hosty:** Integrace aktuální předpovědi (Open-Meteo API) přímo pro lokalitu **Tanvald** a automatické doporučení aktivit podle měsíce příjezdu.
+* **Počasí pro hosty:** Integrace aktuální předpovědi (Open-Meteo API) přímo pro lokalitu **Tanvald** a automatické doporučení aktivit podle měsíce příjezdu. Zpracování dat pomocí funkce `.json()`.
 
 ## Ignorované soubory (.gitignore)
 Projekt využívá soubor `.gitignore` pro vyloučení systémových a osobních souborů z verzování na GitHubu:
@@ -32,6 +32,10 @@ Projekt využívá soubor `.gitignore` pro vyloučení systémových a osobních
 
 ## Technické informace
 * Projekt je vyvíjen v jazyce Python 3.14.0
-* Použití knihoven `datetime` (interní) a `requests` (externí).
+* Použití knihoven `datetime` (interní) a `requests` a `icalevents` (externí).
 * Kódování souborů:** `UTF-8` (pro správné zobrazení českých znaků v souboru `rezervace.txt`)
+
+## Instalace a spuštění
+Projekt vyžaduje ke svému běhu instalaci externích knihoven viz. výše. V terminálu spusťte následující příkaz: `pip install requests icalevents`
+
 
